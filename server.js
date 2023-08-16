@@ -1,8 +1,18 @@
-const app = require("./src/app");
-const { db } = require("./db/connection")
+const app = require("./silksonic-songbook/server/app");
+const { db } = require("./silksonic-songbook/server/models")
 const port = 3000;
 
-app.listen(port, () => {
-    db.sync();
-    console.log(`Listening at http://localhost:${port}/musicians`)
-})
+const init = async () => {
+    try{
+        await db.sync();
+        app.listen(port, () => {
+            db.sync();
+            console.log(`Listening at http://localhost:${port}`);
+    });
+} catch (error) {
+    console.error('Error starting server:', error)
+}
+
+
+};
+init();
