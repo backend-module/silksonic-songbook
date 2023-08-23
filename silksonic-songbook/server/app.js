@@ -25,7 +25,7 @@ app.get('/', async(req, res, next) => {
 
 app.get('/:id', async (req, res, next) => {
     try {
-        const song = Song.findOne({where : {id: req.params.id}});
+        const song = await Song.findOne({where : {id: req.params.id}});
         res.send(song);
     } catch(error){
         next(error);
@@ -34,24 +34,24 @@ app.get('/:id', async (req, res, next) => {
 
 
 //get song by title route
-app.get('/:title', async (req, res, next) => {
-    try {
-        const song = Song.findOne({where : {title: req.params.title}});
-        res.send(song);
-    } catch(error){
-        next(error);
-    }
-})
+// app.get('/:title', async (req, res, next) => {
+//     try {
+//         const song = await Song.findOne({where : {title: req.params.title}});
+//         res.send(song);
+//     } catch(error){
+//         next(error);
+//     }
+// })
 
 //get songs by artist route
-app.get('/:artist', async (req, res, next) => {
-    try{
-        const artist = Song.findAll({where: {artist: req.params.artist}})
-    }
-    catch(error){
-        next(error);
-    }
-})
+// app.get('/:artist', async (req, res, next) => {
+//     try{
+//         const artist = await Song.findAll({where: {artist: req.params.artist}})
+//     }
+//     catch(error){
+//         next(error);
+//     }
+// })
 
     //TODO: add middleware
     //create song
