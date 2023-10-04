@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node silksonic-songbook/server/app.test.js",
     "seed": "node silksonic-songbook/server/seed.js",
     "dev-server":"nodemon server.js"
   },
