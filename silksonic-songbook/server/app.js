@@ -46,7 +46,8 @@ app.get('/:id', async (req, res, next) => {
 //get songs by artist route
 // app.get('/:artist', async (req, res, next) => {
 //     try{
-//         const artist = await Song.findAll({where: {artist: req.params.artist}})
+//         const artist = await Song.findAll({where: {artist: req.params.artist}});
+//         res.send(artist);
 //     }
 //     catch(error){
 //         next(error);
@@ -55,6 +56,7 @@ app.get('/:id', async (req, res, next) => {
 
     //TODO: add middleware
     //create song
+
 app.post("/", async (req, res, next) => {
     try{
         const [song, created] = await Song.findOrCreate({
