@@ -1,6 +1,6 @@
 const app = require("./silksonic-songbook/server/app");
 const { db } = require("./silksonic-songbook/server/models")
-const port = 3000;
+const port = 4000;
 
 const init = async () => {
     try{
